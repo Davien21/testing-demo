@@ -93,7 +93,12 @@ describe('applyDiscount', () => {
 
 describe('notifyCustomer', () => {
   it('should send an email to the customer', () => {
-     db.getCustomerSync = jest.fn().mockReturnValue({ email: 'a' });
+    /* const mockFunction = jest.fn();
+    // mockFunction.mockReturnValue(1)
+    mockFunction.mockResolvedValue(1);
+    const result = await mockFunction();
+    mockFunction(); */
+    db.getCustomerSync = jest.fn().mockReturnValue({ email: 'a' });
     mail.send = jest.fn().mockReturnValue()
 
     lib.notifyCustomer({ customerId: 1 });
