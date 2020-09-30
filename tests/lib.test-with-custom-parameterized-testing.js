@@ -64,15 +64,16 @@ describe('getProduct', () => {
 
 describe('registerUser', () => {
   it('should throw err if username is falsy', () => {
+    // falsy values:
+    // Null
+    // undefined
+    // NaN
+    // ''
+    // 0
+    // false
     const args = [null, undefined, NaN, '', 0, false];
     args.forEach(a => {
       expect(() => { lib.registerUser(null) }).toThrow();
     })
-  })
-
-  it('should return a user object if valid username is passed', () => {
-    const result = lib.registerUser('Mosh');
-    expect(result).toMatchObject({ username: 'Mosh'});
-    expect(result.id).toBeGreaterThan(0);
   })
 })
